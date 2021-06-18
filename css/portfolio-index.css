@@ -1,0 +1,334 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Custom properties for the layout */
+
+:root {
+    --ff-primary: 'Poppins', sans-serif;
+    --ff-secondary: 'Merriweather', serif;
+
+    --fw-reg: 400;
+    --fw-bold: 700;
+
+    --clr-nav: #b61f30;
+    --clr-about: #1f1b1b;
+    --clr-work: #4569a7;
+    --clr-contact: #303841;
+    --clr-font: #dee2e6;
+
+    --fs-h1: 5rem;
+    --fs-h2: 2.75rem;
+    --fs-p: 2.5rem;
+}
+
+/* General Styles */
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+}
+
+section {
+    padding: 5em 2em;
+}
+
+
+/* Typography */
+
+h1,
+h2,
+p {
+    line-height: 1;
+    margin: 0;
+}
+
+h1 { font-size: var(--fs-h1) }
+h2 { font-size: var(--fs-h2) }
+p { font-size: var(--fs-p) }
+
+/* Media querries */
+
+@media (max-width: 75em) {
+    html {
+        font-size: 60%;
+    }
+}
+
+  /* 980px / 16px = 61.25em */
+@media (max-width: 61.25em) {
+    html {
+        font-size: 58%;
+    }
+}
+
+/* 460px / 16px = 28.75em */
+@media (max-width: 28.75em) {
+    html {
+        font-size: 55%;
+    }
+}
+
+/* Navigation Link Section*/
+
+#navbar {
+    position: fixed;
+    margin: 0;
+    background: var(--clr-nav);
+    width: 100%;
+    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.4);
+    z-index: 10;
+}
+
+@media (max-width: 28.75em) {
+    #navbar {
+        justify-content: center;
+    }
+
+    .nav-list {
+        margin: 0 1rem;
+    }
+}
+
+.nav-list {
+    list-style: none;
+    display: flex;
+    height: 100%;
+    flex-direction: row;
+    /* justify-content: space-evenly;
+    align-items: center; */
+    justify-content: right;
+    
+}
+
+.nav-link {
+    font-size: x-large;
+    text-decoration: none;
+    color: var(--clr-font);
+    font-weight: var(--fw-bold);
+    font-family: var(--ff-primary);
+    margin: 1.5rem;
+}
+
+.nav-link:hover {
+    color: var(--clr-work);
+}
+
+
+/* About Me Section */
+
+#welcome-section {
+    background-color: var(--clr-about);
+    height: 100vh;
+    width: 100%;
+}
+
+.about-header {
+    color: var(--clr-font);
+    text-align: center;
+    margin-top: 15%;
+}
+
+.desc {
+    color: var(--clr-nav);
+    font-size: var(--fs-p);
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* My Projects Section */
+#projects {
+    background-color: var(--clr-work);
+    color: var(--clr-font);
+    text-align: center;
+}
+
+.work-header::after {
+    content: "";
+    display: block;
+    width: 45%;
+    height: 3px;
+    margin: 0.2em auto 1em;
+    background: var(--clr-font);
+    opacity: 0.5;
+}
+
+@media (max-width: 28.75em) {
+    .work-header {
+        font-size: 4rem;
+    }
+}
+
+.project-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    max-width: 1280px;
+    grid-gap: 4rem;
+    width: 100%;
+    margin: 0 auto;
+    margin-bottom: 5rem;
+}
+
+@media (max-width: 30.625em) {
+    .project-section {
+        padding: 6rem 1rem;
+    }
+
+    .project-list {
+        grid-template-columns: 1fr;
+    }
+}
+
+.project-tile {
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+    border-radius: 2px;
+    text-decoration: none;
+    color: var(--clr-font);
+}
+
+.project-image {
+    object-fit: cover;
+    width: 100%;
+    height: calc(100% - 3.5rem);
+}
+
+.caption-title {
+    background: rgba(0, 0, 0, 0.836);
+    font-size: 1.5rem;
+    padding: 1rem 0.5rem;
+}
+
+.caption-style {
+    color: rgba(14, 13, 13, 0.836);
+    transition: color 0.3s ease-out;
+}
+
+.project-tile:hover .caption-style {
+    color: #ff0000;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.5rem 0.5rem;
+    border-radius: 4px;
+    text-decoration: none;
+    color: var(--clr-font);
+}
+
+.btn-show-all {
+    font-size: 2rem;
+    background: var(--clr-about);
+    transition: background 0.3s ease-out;
+}
+
+.btn-show-all:hover {
+    background: var(--clr-nav);
+}
+
+.btn-show-all:hover > i {
+    transform: translateX(2px);
+}
+
+.btn-show-all > i {
+    margin-left: 10px;
+    transform: translateX(0);
+    transition: transform 0.3s ease-out;
+}
+
+
+/* Contact Section */
+
+#contact {
+    background-color: var(--clr-contact);
+    color: var(--clr-font);
+    text-align: center;
+}
+
+.section-subtitle {
+    font-size: x-large;
+    margin-top: 25px;
+}
+
+
+#section-contact-list {
+    margin: 25px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    font-size: x-large;
+    font-weight: var(--fw-bold);
+}
+
+.contact-list {
+    display: flex;
+    justify-content: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.contact-link {
+    text-decoration: none;
+    list-style: none;
+    font-size: x-large;
+    font-weight: var(--fw-bold);
+}
+
+.contact-icon {
+    color: var(--clr-font);
+    text-shadow: 2px 2px 1px #1f1f1f;
+    transition: transform 0.3s ease-out;
+}
+
+.contact-icon:hover {
+    transform: translateY(8px);
+}
+
+.button {
+    display: inline-block;
+    padding: 1rem 2rem;
+    border-radius: 2px;
+}
+
+
+/* Footer Section */
+
+.footer-section::before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 4px;
+    background: var(--clr-nav);
+}
+
+.footer-section {
+    background: var(--clr-contact);
+    color: var(--clr-font);    
+}
+
+.footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    justify-content: space-evenly;
+    margin: 0 auto;
+    padding: 40px;
+}
+
+.footer-desc {
+    font-size: x-large;
+}
+
+.footer-copyright {
+    font-size: x-large;
+}
+
+.copyright-link {
+    text-decoration: none;
+    color: var(--clr-font);
+}
+
